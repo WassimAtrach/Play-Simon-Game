@@ -4,6 +4,13 @@ var userClickedPattern = [];
 var gameStarted = false;
 var level = 0;
 
+function startGame() {
+    if (!gameStarted) {
+        $("#level-title").text("Level " + level);
+        nextSequence();
+        gameStarted = true;
+    }
+}
 
 function nextSequence() {
     var randomNumber = Math.floor(Math.random() * 4);
@@ -28,13 +35,9 @@ function handleButtonClick() {
     checkAnswer(userClickedPattern.length - 1);
 }
 
-$(document).on("keydown", function() {
-    if (!gameStarted) {
-        $("#level-title").text("Level " + level);
-        nextSequence();
-        gameStarted = true;
-    }
-});
+$(document).on("keydown", startGame);
+$(document).on("touchstart", startGame);
+$(document).on("click", startGame);
 
 $(".btn").on("click", handleButtonClick);
 
@@ -63,7 +66,7 @@ function checkAnswer(currentLevel) {
     } else {
         console.log("wrong");
         playSound("wrong");
-        $("#level-title").text("Game Over, Press Any Key to Restart");
+        $("#level-title").text("Game Over, Tap Screen or Press Any Key to Restart");
         $("body").addClass("game-over");
         setTimeout(function() {
             $("body").removeClass("game-over");
