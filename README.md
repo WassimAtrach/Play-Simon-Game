@@ -6,7 +6,7 @@ A web-based version of the classic electronic memory game. The game creates a se
 
 ## 🚀 Live Demo
 You can play the game live here:
-**[Play Simon Says](https://wassimatrach.github.io/Play-Simon-Says/)**
+**[Play Simon Game](https://wassimatrach.github.io/Play-Simon-Game/)**
 
 ---
 
